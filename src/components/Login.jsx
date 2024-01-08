@@ -23,17 +23,17 @@ const Login = (props) => {
   };
 
   const [buttonDisable, setbuttonDisable] = useState(false);
+
   useEffect(() => {
    const timerId= setTimeout(() => {
       console.log("useEffect is executing...");
       if (userName.length === 0 || password.length === 0) {
         setbuttonDisable(true);
-      } else {
-        setbuttonDisable(false);
-      }
+      } 
     }, 3000);
 
     return ()=>{
+      setbuttonDisable(false);
       console.log("clean up executing...!")
       clearTimeout(timerId)
     }
